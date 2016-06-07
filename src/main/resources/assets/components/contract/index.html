@@ -1,0 +1,28 @@
+<div class="table-responsive">
+    <table class="table table-striped">
+        <thead>
+        <tr>
+            <th>Contract Code</th>
+            <th>Description</th>
+            <th>Vendor</th>
+            <th>Percent Complete</th>
+            <th>Budget</th>
+            <th>Payment</th>
+            <th>Forecast</th>
+            <th>Committed</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr ng-repeat="contract in ContractsCtrl.contracts">
+            <td>{{ contract.code }}</td>
+            <td>{{ contract.description }}</td>
+            <td>{{ contract.vendor }}</td>
+            <td>{{ contract.percentComplete }}</td>
+            <td>{{ contract.budget }}</td>
+            <td>{{ contract.payment }}</td>
+            <td>{{ contract.forecast }}</td>
+            <td>{{ contract.committed }}</td>
+        </tr>
+        </tbody>
+    </table>
+</div>
