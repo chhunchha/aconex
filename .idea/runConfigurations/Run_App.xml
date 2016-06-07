@@ -1,0 +1,52 @@
+<component name="ProjectRunConfigurationManager">
+  <configuration default="false" name="Run App" type="Application" factoryName="Application">
+    <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
+      <pattern>
+        <option name="PATTERN" value="com.aconex.cost.contract.*" />
+        <option name="ENABLED" value="true" />
+      </pattern>
+    </extension>
+    <extension name="recording" autostart="true">
+      <include_pattern>
+        <option name="PATTERN" value="com.aconex.cost.contract.config.*" />
+        <option name="ENABLED" value="true" />
+      </include_pattern>
+      <include_pattern>
+        <option name="PATTERN" value="com.aconex.cost.contract.services.*" />
+        <option name="ENABLED" value="true" />
+      </include_pattern>
+      <include_pattern>
+        <option name="PATTERN" value="com.aconex.cost.contract.*" />
+        <option name="ENABLED" value="true" />
+      </include_pattern>
+      <include_pattern>
+        <option name="PATTERN" value="com.aconex.cost.contract.views.*" />
+        <option name="ENABLED" value="true" />
+      </include_pattern>
+      <include_pattern>
+        <option name="PATTERN" value="com.aconex.cost.contract.models.*" />
+        <option name="ENABLED" value="true" />
+      </include_pattern>
+      <include_pattern>
+        <option name="PATTERN" value="com.aconex.cost.contract.controllers.*" />
+        <option name="ENABLED" value="true" />
+      </include_pattern>
+      <include_pattern>
+        <option name="PATTERN" value="com.aconex.cost.contract.repositories.*" />
+        <option name="ENABLED" value="true" />
+      </include_pattern>
+    </extension>
+    <option name="MAIN_CLASS_NAME" value="com.aconex.cost.contract.PrimaryApplication" />
+    <option name="VM_PARAMETERS" value="" />
+    <option name="PROGRAM_PARAMETERS" value="server src/main/resources/app.yml" />
+    <option name="WORKING_DIRECTORY" value="file://$PROJECT_DIR$" />
+    <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+    <option name="ALTERNATIVE_JRE_PATH" />
+    <option name="ENABLE_SWING_INSPECTOR" value="false" />
+    <option name="ENV_VARIABLES" />
+    <option name="PASS_PARENT_ENVS" value="true" />
+    <module name="contract" />
+    <envs />
+    <method />
+  </configuration>
+</component>
