@@ -33,7 +33,7 @@ public class PrimaryApplication extends Application<ApplicationConfiguration> {
 
     private final ViewBundle<ApplicationConfiguration> viewBundle = new ViewBundle<>();
 
-    private final AssetsBundle assetsBundle = new AssetsBundle("/assets", "/assets");
+    private final AssetsBundle assetsBundle = new AssetsBundle("/assets", "/", "index.html");
 
     public static void main(String[] args) throws Exception {
         new PrimaryApplication().run(args);

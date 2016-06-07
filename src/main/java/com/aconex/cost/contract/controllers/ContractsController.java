@@ -1,16 +1,16 @@
 package com.aconex.cost.contract.controllers;
 
 import com.aconex.cost.contract.services.ContractService;
-import com.aconex.cost.contract.views.ContractsView;
 import io.dropwizard.hibernate.UnitOfWork;
 
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
+import javax.ws.rs.core.Response;
 
 @Path("/contracts")
-@Produces(MediaType.TEXT_HTML)
+@Produces(MediaType.APPLICATION_JSON)
 public class ContractsController {
 
     private final ContractService contractService;
@@ -21,7 +21,7 @@ public class ContractsController {
 
     @GET
     @UnitOfWork
-    public ContractsView index() {
-        return new ContractsView(contractService.findAll());
+    public Response index() {
+        return Response.ok(contractService.findAll()).build();
     }
 }
