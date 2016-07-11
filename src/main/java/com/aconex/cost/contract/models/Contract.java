@@ -23,7 +23,7 @@ public class Contract {
     private DateTime createdAt;
 
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     public Long getId() {
         return id;
     }
