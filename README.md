@@ -52,4 +52,4 @@ java -jar target/contract-1.0.0-SNAPSHOT.jar db migrate src/main/resources/app.y
 java -jar target/contract-1.0.0-SNAPSHOT.jar server src/main/resources/app.yml
 ```
 
-You should now be able to view the application by visiting [http://localhost:9090/contracts](http://localhost:9090/contracts)
+You should now be able to view the application by visiting [http://localhost:9090/](http://localhost:9090/)
