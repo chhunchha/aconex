@@ -64,6 +64,12 @@
             <version>2.5</version>
         </dependency>
 
+        <dependency>
+            <groupId>com.github.dirkraft.dropwizard</groupId>
+            <artifactId>dropwizard-file-assets</artifactId>
+            <version>0.0.1</version>
+        </dependency>
+
         <!--Test Dependencies-->
         <dependency>
             <groupId>io.dropwizard</groupId>

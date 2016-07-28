@@ -5,8 +5,8 @@ import com.aconex.cost.contract.controllers.ContractsController;
 import com.aconex.cost.contract.models.Contract;
 import com.aconex.cost.contract.repositories.ContractRepository;
 import com.aconex.cost.contract.services.ContractService;
+import com.github.dirkraft.dropwizard.fileassets.FileAssetsBundle;
 import io.dropwizard.Application;
-import io.dropwizard.assets.AssetsBundle;
 import io.dropwizard.db.DataSourceFactory;
 import io.dropwizard.db.PooledDataSourceFactory;
 import io.dropwizard.hibernate.HibernateBundle;
@@ -32,8 +32,9 @@ public class PrimaryApplication extends Application<ApplicationConfiguration> {
     };
 
     private final ViewBundle<ApplicationConfiguration> viewBundle = new ViewBundle<>();
-
-    private final AssetsBundle assetsBundle = new AssetsBundle("/assets", "/", "index.html");
+    // This is a relative path, relative to the working directory. If you run this main method in IntelliJ,
+    // by default the working directory is the project root directory.
+    private final FileAssetsBundle assetsBundle = new FileAssetsBundle("src/main/resources/assets", "/", "index.html");
 
     public static void main(String[] args) throws Exception {
         new PrimaryApplication().run(args);
