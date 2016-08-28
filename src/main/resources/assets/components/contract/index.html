@@ -1,4 +1,14 @@
 <div class="table-responsive">
+    <!--<div class="text-right">-->
+        <!--<button class="btn btn-primary" ng-click="ContractsCtrl.saveNewContract()">Create new Randomly</button>-->
+    <!--</div>-->
+
+    <div class="container-fluid">
+        <div class="row text-right padding-15">
+            <button class="btn btn-default" ng-click="ContractsCtrl.addContract()">Add Contract</button>
+        </div>
+    </div>
+
     <table class="table table-striped">
         <thead>
         <tr>
@@ -14,6 +24,7 @@
         </thead>
         <tbody>
         <tr ng-repeat="contract in ContractsCtrl.contracts">
+            <!--<td><a href="#/contract/{{contract.id}}">{{ contract.code }}</a></td>-->
             <td>{{ contract.code }}</td>
             <td>{{ contract.description }}</td>
             <td>{{ contract.vendor }}</td>
@@ -22,6 +33,10 @@
             <td>{{ contract.payment }}</td>
             <td>{{ contract.forecast }}</td>
             <td>{{ contract.committed }}</td>
+            <td>
+                <span ng-click="ContractsCtrl.editContract(contract.id)" class="glyphicon glyphicon-pencil" aria-hidden="true" style="padding-right: 10px;"></span>
+                <span ng-click="ContractsCtrl.deleteContractConfirm(contract)" class="glyphicon glyphicon-trash" aria-hidden="true"></span>
+            </td>
         </tr>
         </tbody>
     </table>

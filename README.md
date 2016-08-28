@@ -53,3 +53,11 @@ java -jar target/contract-1.0.0-SNAPSHOT.jar server src/main/resources/app.yml
 ```
 
 You should now be able to view the application by visiting [http://localhost:9090/](http://localhost:9090/)
+
+///////////////////////
+
+Run h2 browser
+java -jar /aconex/h2/bin/h2-1.3.176.jar
+
+
+jdbc:h2:/aconex/contract-management/target/contract_data

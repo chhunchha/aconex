@@ -16,4 +16,20 @@ public class ContractService {
     public List<Contract> findAll() {
         return contractRepository.findAll();
     }
+
+    public Contract getContract(long id) {
+        return contractRepository.getContract(id);
+    }
+
+    public List<Contract> findContractByCode(String code) {
+        return contractRepository.findContractByCode(code);
+    }
+
+    public Contract saveOrUpdate(Contract contract) {
+        return contractRepository.saveOrUpdate(contract);
+    }
+
+    public void deleteContract(long id) {
+        contractRepository.deleteContract(id);
+    }
 }

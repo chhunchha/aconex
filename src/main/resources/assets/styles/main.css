@@ -1,1 +1,19 @@
 /* CSS would go here */
+.info-message-body {
+    text-align: center;
+}
+
+.padding-15 {
+    padding: 15px;
+}
+
+.has-error {
+    border: 1px solid #f00;
+}
+
+.error-helper {
+    font-size: 12px;
+    font-style: italic;
+    text-align: right;
+    color: #f00;
+}
