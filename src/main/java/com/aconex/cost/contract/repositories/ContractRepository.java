@@ -29,7 +29,7 @@ public class ContractRepository {
     }
 
     public Contract saveOrUpdate(Contract contract) {
-        long contractId;
+        long contractId = 0;
         if(contract.getId() != null) {
             sessionFactory.getCurrentSession().update(contract);
             contractId = contract.getId();
@@ -39,7 +39,13 @@ public class ContractRepository {
         return  getContract(contractId);
     }
 
-    public void deleteContract(long id) {
-        sessionFactory.getCurrentSession().delete(getContract(id));
+    public boolean deleteContract(long id) throws Exception {
+        try {
+            sessionFactory.getCurrentSession().delete(getContract(id));
+        } catch (Exception e) {
+            throw new Exception("Contract deletion failed." + getContract(id));
+        }
+
+        return true;
     }
 }

@@ -22,6 +22,18 @@ public class Contract {
 
     private DateTime createdAt;
 
+    private Project project;
+
+    @ManyToOne
+    @JoinColumn(name="project_id")
+    public Project getProject() {
+        return project;
+    }
+
+    public void setProject(Project project) {
+        this.project = project;
+    }
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     public Long getId() {

@@ -1,15 +1,17 @@
 angular.module('contractApp')
 .factory('dataService', dataService);
 
-dataService.$inject = ['$http'];
+dataService.$inject = ['$http', '$q'];
 
-function dataService($http) {
+function dataService($http, $q) {
 
     var service = {
         getContracts : getContracts,
         createContract: createContract,
         deleteContract: deleteContract,
-        getContract: getContract
+        getContract: getContract,
+
+        getProjects: getProjects
     };
 
     return service;
@@ -21,7 +23,7 @@ function dataService($http) {
     }
 
     function failedCallBack(error) {
-        console.error(error.data);
+        console.error(error);
     }
 
 //////
@@ -46,6 +48,12 @@ function dataService($http) {
 
     function getContract(id) {
         return $http.get('/api/contracts/' + id)
+                .then(successCallBack)
+                .catch(failedCallBack);
+    }
+
+    function getProjects() {
+        return $http.get('/api/projects')
                 .then(successCallBack)
                 .catch(failedCallBack);
     }

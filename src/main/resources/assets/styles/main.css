@@ -17,3 +17,7 @@
     text-align: right;
     color: #f00;
 }
+
+.ui-select-match .btn-default.form-control.ui-select-toggle {
+    background: #fff;
+}

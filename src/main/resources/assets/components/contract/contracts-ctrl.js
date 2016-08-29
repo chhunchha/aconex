@@ -2,14 +2,21 @@
     angular.module('contractApp')
     .controller('ContractsCtrl', ContractsCtrl);
 
-    ContractsCtrl.$inject = ['$http', 'dialogService','dataService', '$location'];
+    ContractsCtrl.$inject = ['$http', 'dialogService','dataService', '$location', '$scope', 'searchService'];
 
-    function ContractsCtrl($http, dialogService, dataService, $location) {
+    function ContractsCtrl($http, dialogService, dataService, $location, $scope, searchService) {
 
         var self = this;
 
+        self.search = {};
+        self.search.text = searchService.getSearchText();
+        $scope.$on('search', function(event, text) {
+            self.search.text = text;
+        });
+
         this.setContracts = function (data) {
             self.contracts = data;
+//            console.log(data);
         };
 
         self.getContracts = function() {
@@ -49,16 +56,18 @@
         var contractToDelete = {};
         self.deleteContractConfirm = function(contract) {
             contractToDelete = contract;
-            dialogService.confirmMessage("Are you sure you want to delete "  + contract.code + " contract?", self.deleteContract, self.cancelDelete);
+            dialogService.confirmMessage("Are you sure you want to delete "  + contract.code + " contract?",
+                self.deleteContract, self.cancelDelete);
         }
 
         self.deleteContract = function() {
             if(contractToDelete.id != undefined) {
                 dataService.deleteContract(contractToDelete.id)
                 .then(function(data) {
-                    dialogService.showMessage("Contract deleted.");
-                    self.getContracts();
-
+                    if(data) {
+                        dialogService.showMessage("Contract deleted.");
+                        self.getContracts();
+                    }
                 });
             }
         }

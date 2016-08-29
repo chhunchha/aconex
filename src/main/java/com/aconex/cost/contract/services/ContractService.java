@@ -29,7 +29,7 @@ public class ContractService {
         return contractRepository.saveOrUpdate(contract);
     }
 
-    public void deleteContract(long id) {
-        contractRepository.deleteContract(id);
+    public boolean deleteContract(long id) throws Exception {
+        return contractRepository.deleteContract(id);
     }
 }

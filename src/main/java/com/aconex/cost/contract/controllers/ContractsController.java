@@ -50,11 +50,7 @@ public class ContractsController {
     @DELETE
     @UnitOfWork
     @Path("/{id}")
-    public void deleteContract(@PathParam("id")  long id) throws Exception {
-        try {
-            contractService.deleteContract(id);
-        } catch(Exception e) {
-            throw new Exception("Contract not found.");
-        }
+    public boolean deleteContract(@PathParam("id")  long id) throws Exception {
+        return contractService.deleteContract(id);
     }
 }

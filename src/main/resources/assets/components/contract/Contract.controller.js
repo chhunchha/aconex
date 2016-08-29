@@ -40,4 +40,15 @@ function ContractCtrl($routeParams, $http, dialogService, dataService, $location
         goToContracts();
     }
 
+    ctrl.projects = [];
+
+    var getProjects = function() {
+        dataService.getProjects()
+        .then(function(data){
+            ctrl.projects = data;
+        });
+    }
+
+    getProjects();
+
 }

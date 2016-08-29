@@ -2,9 +2,13 @@ package com.aconex.cost.contract;
 
 import com.aconex.cost.contract.config.ApplicationConfiguration;
 import com.aconex.cost.contract.controllers.ContractsController;
+import com.aconex.cost.contract.controllers.ProjectsController;
 import com.aconex.cost.contract.models.Contract;
+import com.aconex.cost.contract.models.Project;
 import com.aconex.cost.contract.repositories.ContractRepository;
+import com.aconex.cost.contract.repositories.ProjectRepository;
 import com.aconex.cost.contract.services.ContractService;
+import com.aconex.cost.contract.services.ProjectService;
 import com.github.dirkraft.dropwizard.fileassets.FileAssetsBundle;
 import io.dropwizard.Application;
 import io.dropwizard.db.DataSourceFactory;
@@ -17,7 +21,7 @@ import io.dropwizard.views.ViewBundle;
 
 public class PrimaryApplication extends Application<ApplicationConfiguration> {
 
-    private final HibernateBundle<ApplicationConfiguration> hibernateBundle = new HibernateBundle<ApplicationConfiguration>(Contract.class) {
+    private final HibernateBundle<ApplicationConfiguration> hibernateBundle = new HibernateBundle<ApplicationConfiguration>(Project.class, Contract.class) {
         @Override
         public PooledDataSourceFactory getDataSourceFactory(ApplicationConfiguration applicationConfiguration) {
             return applicationConfiguration.getDataSourceFactory();
@@ -55,9 +59,16 @@ public class PrimaryApplication extends Application<ApplicationConfiguration> {
 
     @Override
     public void run(ApplicationConfiguration applicationConfiguration, Environment environment) throws Exception {
+        final ProjectRepository projectRepository = new ProjectRepository(hibernateBundle.getSessionFactory());
+        final ProjectService projectService = new ProjectService(projectRepository);
+
+        environment.jersey().register(new ProjectsController(projectService));
+
         final ContractRepository contractRepository = new ContractRepository(hibernateBundle.getSessionFactory());
         final ContractService contractService = new ContractService(contractRepository);
 
         environment.jersey().register(new ContractsController(contractService));
+
+
     }
 }

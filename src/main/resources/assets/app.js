@@ -1,7 +1,7 @@
 (function () {
     'use strict';
 
-    angular.module('contractApp', ['ngRoute', 'ui.bootstrap', 'ngMessages'])
+    angular.module('contractApp', ['ngRoute', 'ui.bootstrap', 'ngMessages', 'ui.select', 'ngSanitize'])
         .config(function ($routeProvider) {
 
             $routeProvider
