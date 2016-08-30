@@ -43,7 +43,7 @@ public class ContractsController {
     @UnitOfWork
     @Path("/post")
     @Consumes(MediaType.APPLICATION_JSON)
-    public Contract saveOrUpdate(Contract contract) {
+    public Contract saveOrUpdate(Contract contract) throws Exception {
         return contractService.saveOrUpdate(contract);
     }
 

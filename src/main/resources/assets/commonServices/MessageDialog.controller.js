@@ -3,16 +3,20 @@
 angular.module('contractApp')
 .controller('MessageDialogController', MessageDialogController);
 
-MessageDialogController.$inject = ['$uibModalInstance', 'message'];
-function MessageDialogController($uibModalInstance, message) {
-    var $ctrl = this;
-    $ctrl.message = message;
+MessageDialogController.$inject = ['$uibModalInstance', 'message', '$timeout'];
+function MessageDialogController($uibModalInstance, message, $timeout) {
+    var ctrl = this;
+    ctrl.message = message;
 
-//    $ctrl.ok = function () {
-//        $uibModalInstance.close();
-//    };
+    ctrl.ok = function () {
+        $uibModalInstance.close();
+    };
 //
-//    $ctrl.cancel = function () {
+//    ctrl.cancel = function () {
 //        $uibModalInstance.dismiss('cancel');
 //    };
+
+    $timeout(function(){
+        ctrl.ok();
+    }, 2000);
 }

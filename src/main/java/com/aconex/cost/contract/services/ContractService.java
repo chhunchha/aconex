@@ -25,7 +25,7 @@ public class ContractService {
         return contractRepository.findContractByCode(code);
     }
 
-    public Contract saveOrUpdate(Contract contract) {
+    public Contract saveOrUpdate(Contract contract) throws Exception {
         return contractRepository.saveOrUpdate(contract);
     }
 

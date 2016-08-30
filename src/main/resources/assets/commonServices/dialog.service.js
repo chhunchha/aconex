@@ -20,7 +20,7 @@ function dialogService($uibModal) {
             ariaDescribedBy: 'modal-body',
             templateUrl: '/commonServices/MessageDialog.html',
             controller: 'MessageDialogController',
-            controllerAs: '$ctrl',
+            controllerAs: 'MessageDialogCntrl',
             size: 'sm',
             resolve: {
                 message: function () {
@@ -36,7 +36,7 @@ function dialogService($uibModal) {
             ariaDescribedBy: 'modal-body',
             templateUrl: '/commonServices/ConfirmDialog.html',
             controller: 'ConfirmDialogController',
-            controllerAs: '$ctrl',
+            controllerAs: 'ConfirmDialogtrl',
             size: 'lg',
             resolve: {
                 question: function () {

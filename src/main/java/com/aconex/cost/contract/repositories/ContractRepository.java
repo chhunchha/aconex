@@ -28,13 +28,17 @@ public class ContractRepository {
         return sessionFactory.getCurrentSession().createCriteria(Contract.class).add(Restrictions.eq("code", code)).list();
     }
 
-    public Contract saveOrUpdate(Contract contract) {
+    public Contract saveOrUpdate(Contract contract) throws Exception {
         long contractId = 0;
         if(contract.getId() != null) {
             sessionFactory.getCurrentSession().update(contract);
             contractId = contract.getId();
         } else {
-            contractId = (long) sessionFactory.getCurrentSession().save(contract);
+            try {
+                contractId = (long) sessionFactory.getCurrentSession().save(contract);
+            } catch(Exception e) {
+                throw new Exception("Create contract failed." + e.getMessage());
+            }
         }
         return  getContract(contractId);
     }

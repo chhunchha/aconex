@@ -29,8 +29,10 @@ function ContractCtrl($routeParams, $http, dialogService, dataService, $location
         } else {
             dataService.createContract(angular.toJson(ctrl.contract))
             .then(function(data) {
-                dialogService.showMessage(data.code +  " contract saved");
-                goToContracts();
+                if(data) {
+                    dialogService.showMessage(data.code +  " contract saved");
+                    goToContracts();
+                }
             });
         }
 
